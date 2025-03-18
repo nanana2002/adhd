@@ -1,6 +1,5 @@
 const article = document.querySelector("article");
 
-// `document.querySelector` may return null if the selector doesn't match anything.
 if (article) {
   const text = article.textContent;
   const sentences = text.split('。').filter(Boolean); // Split text into sentences by '。'
@@ -11,6 +10,11 @@ if (article) {
     p.textContent = sentence + '。';
     p.style.backgroundColor = index % 2 === 0 ? '#f0f0f0' : '#ffffff'; // Alternate background color
     article.appendChild(p);
+  });
+
+  const words = article.querySelectorAll('p');
+  words.forEach(p => {
+    p.innerHTML = p.textContent.split(' ').map(word => `<b>${word}</b>`).join(' ');
   });
 
   // Calculate reading time
@@ -26,6 +30,9 @@ if (article) {
   // Support for article docs with date
   const date = article.querySelector("time")?.parentNode;
 
-  (date ?? heading).insertAdjacentElement("afterend", badge);
-
+  if (date || heading) {
+    (date ?? heading).insertAdjacentElement("afterend", badge);
+  } else {
+    console.error("No suitable element found to insert the badge.");
+  }
 }
