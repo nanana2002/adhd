@@ -3,13 +3,21 @@ const article = document.querySelector("article");
 // `document.querySelector` may return null if the selector doesn't match anything.
 if (article) {
   const text = article.textContent;
+  const sentences = text.split('。').filter(Boolean); // Split text into sentences by '。'
+  article.innerHTML = ''; // Clear the article content
+
+  sentences.forEach((sentence, index) => {
+    const p = document.createElement('p');
+    p.textContent = sentence + '。';
+    p.style.backgroundColor = index % 2 === 0 ? '#f0f0f0' : '#ffffff'; // Alternate background color
+    article.appendChild(p);
+  });
+
+  // Calculate reading time
   const wordMatchRegExp = /[^\s]+/g; // Regular expression
-  const words = text.matchAll(wordMatchRegExp);
-  // matchAll returns an iterator, convert to array to get word count
-  const wordCount = [...words].length;
+  const wordCount = text.match(wordMatchRegExp).length;
   const readingTime = Math.round(wordCount / 200);
   const badge = document.createElement("p");
-  // Use the same styling as the publish information in an article's header
   badge.classList.add("color-secondary-text", "type--caption");
   badge.textContent = `⏱️ ${readingTime} min read`;
 
@@ -19,4 +27,5 @@ if (article) {
   const date = article.querySelector("time")?.parentNode;
 
   (date ?? heading).insertAdjacentElement("afterend", badge);
+
 }
