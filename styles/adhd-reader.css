@@ -1,0 +1,22 @@
+:root {
+  --adhd-font-size: 16px;
+  --adhd-line-height: 1.5;
+  --adhd-word-spacing: 0.1em;
+}
+
+.adhd-sentence {
+  font-size: var(--adhd-font-size);
+  line-height: var(--adhd-line-height);
+  word-spacing: var(--adhd-word-spacing);
+  transition: all 0.3s ease;
+}
+
+.adhd-word {
+  transition: font-weight 0.3s ease;
+}
+
+.adhd-reading-time {
+  color: #666;
+  font-size: 0.8em;
+  margin-bottom: 10px;
+}

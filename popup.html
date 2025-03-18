@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ADHD Reader</title>
+  <script src="scripts/pdfjs/pdf.js"></script>
+  <script src="scripts/pdf-to-html.js"></script>
+  <style>
+    body {
+      width: 300px;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+    }
+    button {
+      width: 100%;
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <h2>ADHD Reader</h2>
+  <button id="processPage">Process Current Page</button>
+  <button id="openOptions">Open Preferences</button>
+
+  <script src="scripts/popup.js"></script>
+  <input type="file" id="pdf-upload" accept="application/pdf">
+  <div id="pdf-content"></div>
+</body>
+</html>

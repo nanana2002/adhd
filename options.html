@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ADHD Reader Preferences</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .setting {
+      margin-bottom: 15px;
+    }
+    input[type="range"] {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h1>ADHD Reader Preferences</h1>
+  
+  <div class="setting">
+    <label for="fontSize">Font Size: <span id="fontSizeValue">16</span>px</label>
+    <input type="range" id="fontSize" min="12" max="32" value="16">
+  </div>
+
+  <div class="setting">
+    <label for="lineHeight">Line Height: <span id="lineHeightValue">1.5</span></label>
+    <input type="range" id="lineHeight" min="1" max="3" step="0.1" value="1.5">
+  </div>
+
+  <div class="setting">
+    <label for="wordSpacing">Word Spacing: <span id="wordSpacingValue">0.1</span>em</label>
+    <input type="range" id="wordSpacing" min="0" max="1" step="0.1" value="0.1">
+  </div>
+
+  <div class="setting">
+    <label>Color Scheme:</label>
+    <select id="colorScheme">
+      <option value="pastel">Pastel</option>
+      <option value="cool">Cool</option>
+    </select>
+  </div>
+
+  <script src="scripts/options.js"></script>
+</body>
+</html>
